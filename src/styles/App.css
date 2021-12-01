@@ -1,0 +1,431 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+i {
+  cursor: pointer;
+  color: white;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+}
+
+.App {
+  -webkit-transition: background-color 500ms ease;
+  transition: background-color 500ms ease;
+  background-color: black;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+}
+
+.App.light {
+  background-color: white;
+}
+
+.App.light input {
+  color: black;
+}
+
+.App.light .decoration {
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(50%, black), color-stop(50%, #9a00c9), to(#6c00c5));
+  background-image: linear-gradient(to left, black 50%, #9a00c9 50%, #6c00c5);
+}
+
+.App.light .inputText {
+  color: black;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-image: -webkit-gradient(linear, right top, left top, from(#9a00c9), to(#6c00c5));
+  background-image: linear-gradient(to left, #9a00c9, #6c00c5);
+  padding: 0.5rem;
+  color: white;
+  letter-spacing: 0.3rem;
+  margin-bottom: 5rem;
+  position: relative;
+}
+
+nav .contain {
+  position: relative;
+}
+
+nav .contain i {
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  -webkit-transform: translatey(-50%) scale(2);
+          transform: translatey(-50%) scale(2);
+}
+
+nav .cog {
+  position: absolute;
+  right: 1rem;
+  z-index: 3;
+  -webkit-transition: -webkit-transform 250ms ease;
+  transition: -webkit-transform 250ms ease;
+  transition: transform 250ms ease;
+  transition: transform 250ms ease, -webkit-transform 250ms ease;
+}
+
+nav.active ul {
+  left: 50%;
+}
+
+nav.active .cog {
+  position: fixed;
+  -webkit-transform: rotate(60deg) translateY(25%);
+          transform: rotate(60deg) translateY(25%);
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 2rem 0;
+  top: 0;
+  left: 100%;
+  position: fixed;
+  width: 50%;
+  min-height: 100vh;
+  background-image: -webkit-gradient(linear, right top, left top, from(#9a00c9), to(#6c00c5));
+  background-image: linear-gradient(to left, #9a00c9, #6c00c5);
+  z-index: 2;
+  list-style: none;
+  -webkit-transition: left 500ms ease;
+  transition: left 500ms ease;
+}
+
+nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+nav ul li h2 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+nav ul li.row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+nav ul .toggle {
+  position: relative;
+  width: 6rem;
+  height: 1rem;
+  background-color: black;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+nav ul .toggle .circle {
+  position: absolute;
+  width: 35%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: white;
+  right: 65%;
+  top: 50%;
+  -webkit-transform: translatey(-50%);
+          transform: translatey(-50%);
+  -webkit-transition: right 250ms ease;
+  transition: right 250ms ease;
+}
+
+nav ul .toggle.on .circle {
+  right: 0;
+}
+
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 5rem;
+}
+
+.search form {
+  position: relative;
+  overflow: hidden;
+}
+
+.search form .decoration {
+  position: absolute;
+  left: -100%;
+  bottom: 0;
+  width: 200%;
+  height: 2px;
+  background-image: -webkit-gradient(linear, right top, left top, color-stop(50%, white), color-stop(50%, #9a00c9), to(#6c00c5));
+  background-image: linear-gradient(to left, white 50%, #9a00c9 50%, #6c00c5);
+  -webkit-transition: -webkit-transform 250ms ease;
+  transition: -webkit-transform 250ms ease;
+  transition: transform 250ms ease;
+  transition: transform 250ms ease, -webkit-transform 250ms ease;
+}
+
+.search form .inputText {
+  position: absolute;
+  left: 1rem;
+  bottom: 0.5rem;
+  color: white;
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
+  opacity: 0.5;
+  pointer-events: none;
+  -webkit-transition-property: font-size, bottom;
+  transition-property: font-size, bottom;
+  -webkit-transition: 250ms ease;
+  transition: 250ms ease;
+}
+
+.search input {
+  padding: 0.3rem;
+  padding-top: 2rem;
+  width: 40vw;
+  font-size: 1.3rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+}
+
+.search input:focus + .decoration,
+.search input:valid + .decoration {
+  -webkit-transform: translate(50%);
+          transform: translate(50%);
+}
+
+.search input:focus ~ div:nth-of-type(2),
+.search input:valid ~ div:nth-of-type(2) {
+  bottom: 3rem;
+  font-size: 0.7rem;
+}
+
+.search i {
+  -webkit-transform: scale(2) translate(100%);
+          transform: scale(2) translate(100%);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  transition: -webkit-transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, -webkit-transform 250ms ease-in-out;
+}
+
+.search i:hover {
+  -webkit-transform: scale(2) translate(100%) rotate(45deg);
+          transform: scale(2) translate(100%) rotate(45deg);
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+}
+
+main .word {
+  width: 45%;
+  min-height: 20rem;
+  background-image: -webkit-gradient(linear, right top, left top, from(#9a00c9), to(#6c00c5));
+  background-image: linear-gradient(to left, #9a00c9, #6c00c5);
+  border-radius: 1rem;
+  padding: 2rem;
+  color: white;
+  position: relative;
+}
+
+main .word > i {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  -webkit-transition-property: -webkit-transform color;
+  transition-property: -webkit-transform color;
+  transition-property: transform color;
+  transition-property: transform color, -webkit-transform color;
+  -webkit-transition: 300ms ease;
+  transition: 300ms ease;
+}
+
+main .word > i:hover {
+  -webkit-transform: scale(2.4);
+          transform: scale(2.4);
+  color: #ff5252;
+}
+
+main .word .row-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+main .word .row-1 i {
+  position: relative;
+}
+
+main .word .row-1 i::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-box-shadow: inset 0 0 0 1px white;
+          box-shadow: inset 0 0 0 1px white;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+main .word .row-1 i:hover::after {
+  -webkit-animation: circleOut 1000ms ease-in-out infinite;
+          animation: circleOut 1000ms ease-in-out infinite;
+}
+
+@-webkit-keyframes circleOut {
+  100% {
+    width: 180%;
+    height: 180%;
+    -webkit-box-shadow: inset 0 0 0 1px transparent;
+            box-shadow: inset 0 0 0 1px transparent;
+  }
+}
+
+@keyframes circleOut {
+  100% {
+    width: 180%;
+    height: 180%;
+    -webkit-box-shadow: inset 0 0 0 1px transparent;
+            box-shadow: inset 0 0 0 1px transparent;
+  }
+}
+
+main .word .row-2 h2 {
+  margin: 1rem 0;
+}
+
+main .word .row-2 span {
+  font-weight: 200;
+}
+
+main .word .row-2 span.hidden {
+  background-color: black;
+  color: black;
+  -webkit-transition-property: background-color, color;
+  transition-property: background-color, color;
+  -webkit-transition: 250ms ease;
+  transition: 250ms ease;
+}
+
+main .word .row-2 span.hidden:hover {
+  background-color: transparent;
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  main .word {
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+  main .word {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1500px) {
+  main .word {
+    width: 30%;
+  }
+}
+
+@media (min-width: 2500px) {
+  main .word {
+    width: 23%;
+  }
+}
+/*# sourceMappingURL=App.css.map */
