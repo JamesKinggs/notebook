@@ -22,8 +22,17 @@ i {
   padding-bottom: 5rem;
 }
 
+.App > h1 {
+  color: white;
+  text-align: center;
+}
+
 .App.light {
   background-color: white;
+}
+
+.App.light > h1 {
+  color: black;
 }
 
 .App.light input {
@@ -178,6 +187,38 @@ nav ul .toggle .circle {
 
 nav ul .toggle.on .circle {
   right: 0;
+}
+
+nav .delete-all {
+  text-transform: uppercase;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid red;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: background-color 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+
+nav .delete-all:hover {
+  background-color: red;
+}
+
+nav .delete-all:hover::before {
+  content: "Are you sure you want to delete all words?";
+  position: absolute;
+  width: 200%;
+  padding: 1rem;
+  top: -300%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  background-color: black;
 }
 
 .search {

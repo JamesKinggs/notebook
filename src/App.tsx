@@ -57,9 +57,13 @@ function App() {
     }
   };
 
+  const deleteAll = () => {
+    setWords([]);
+  };
+
   return (
     <div className={nightTheme ? "App" : "App light"}>
-      <Nav />
+      <Nav deleteAll={deleteAll} />
       <Form words={words} setWords={setWords} />
       {words.length >= 1 ? (
         <main>
@@ -80,9 +84,7 @@ function App() {
           })}
         </main>
       ) : (
-        <h1 style={{ textAlign: "center" }}>
-          No word yet? Start adding one...
-        </h1>
+        <h1>No word yet? Start adding one...</h1>
       )}
     </div>
   );

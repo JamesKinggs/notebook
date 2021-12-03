@@ -4,7 +4,11 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleNight } from "../actions/toggleNight";
 
-const Nav: React.FC = (): JSX.Element => {
+interface ToggleProps {
+  deleteAll: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const Nav = (props: ToggleProps): JSX.Element => {
   const [navIsOpen, setNavIsOpen] = useState(false);
   const dispatch = useDispatch();
   const nightTheme = useSelector((state: any) => state.nightReducer);
@@ -43,6 +47,9 @@ const Nav: React.FC = (): JSX.Element => {
         <NavList text="Definition" />
         <NavList text="Example" />
         <NavList text="Synonyms" />
+        <button className="delete-all" onClick={props.deleteAll}>
+          Delete All
+        </button>
       </ul>
     </nav>
   );
